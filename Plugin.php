@@ -43,4 +43,11 @@ class Plugin extends PluginBase
         App::register('Autumn\JWTAuth\JWTServiceProvider');
     }
 
+    public function registerAPIResources()
+    {
+        return [
+            'auth' => 'Autumn\JWTAuth\Http\Controllers\AuthController',
+        ];
+    }
+
 }
