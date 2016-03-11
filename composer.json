@@ -1,0 +1,9 @@
+{
+    "name": "autumn/jwt-auth",
+    "description": "JSON Web Token Authentication plugin for OctoberCMS",
+    "keywords": ["october", "cms", "octobercms", "api", "authentication", "json web token", "jwt"],
+    "require": {
+        "tymon/jwt-auth": "0.5.*"
+    },
+    "minimum-stability": "dev"
+}
