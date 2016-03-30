@@ -9,14 +9,6 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends BaseController
 {
-    use \Autumn\Api\Traits\AdditionalRoutes;
-
-    public function __construct()
-    {
-        $this->addAdditionalRoute('authenticate', 'authenticate', 'post');
-        $this->addAdditionalRoute('register', 'register', 'post');
-    }
-
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');

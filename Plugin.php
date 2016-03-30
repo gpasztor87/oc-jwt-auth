@@ -12,7 +12,7 @@ class Plugin extends PluginBase
     /**
      * @var array Plugin dependencies
      */
-    public $require = ['Autumn.Api', 'RainLab.User'];
+    public $require = ['RainLab.User'];
 
     /**
      * Returns information about this plugin.
@@ -41,13 +41,6 @@ class Plugin extends PluginBase
 
         App::register('Tymon\JWTAuth\Providers\JWTAuthServiceProvider');
         App::register('Autumn\JWTAuth\JWTServiceProvider');
-    }
-
-    public function registerAPIResources()
-    {
-        return [
-            'auth' => 'Autumn\JWTAuth\Http\Controllers\AuthController',
-        ];
     }
 
 }
