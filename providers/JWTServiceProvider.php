@@ -1,4 +1,4 @@
-<?php namespace Autumn\JWTAuth;
+<?php namespace Autumn\JWTAuth\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

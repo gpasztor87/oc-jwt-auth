@@ -40,7 +40,7 @@ class Plugin extends PluginBase
         $alias->alias('JWTAuth', 'Tymon\JWTAuth\Facades\JWTAuth');
 
         App::register('Tymon\JWTAuth\Providers\JWTAuthServiceProvider');
-        App::register('Autumn\JWTAuth\JWTServiceProvider');
+        App::register('Autumn\JWTAuth\Providers\JWTServiceProvider');
     }
 
 }
