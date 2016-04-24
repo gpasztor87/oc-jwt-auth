@@ -1,4 +1,5 @@
-<?php namespace Autumn\JWTAuth;
+<?php
+namespace Autumn\JWTAuth;
 
 use App;
 use System\Classes\PluginBase;
@@ -25,7 +26,7 @@ class Plugin extends PluginBase
             'name'        => 'JWTAuth',
             'description' => 'JSON Web Token Authentication.',
             'author'      => 'Autumn',
-            'icon'        => 'icon-user-secret'
+            'icon'        => 'icon-user-secret',
         ];
     }
 
@@ -42,5 +43,4 @@ class Plugin extends PluginBase
         App::register('Tymon\JWTAuth\Providers\JWTAuthServiceProvider');
         App::register('Autumn\JWTAuth\Providers\JWTServiceProvider');
     }
-
 }

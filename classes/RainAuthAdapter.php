@@ -1,4 +1,6 @@
-<?php namespace Autumn\JWTAuth\Classes;
+<?php
+
+namespace Autumn\JWTAuth\Classes;
 
 use October\Rain\Auth\AuthException;
 use RainLab\User\Classes\AuthManager;

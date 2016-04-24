@@ -1,4 +1,6 @@
-<?php namespace Autumn\JWTAuth\Providers;
+<?php
+
+namespace Autumn\JWTAuth\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -26,5 +28,4 @@ class JWTServiceProvider extends ServiceProvider
     {
         $this->app['router']->middleware($alias, $class);
     }
-
 }

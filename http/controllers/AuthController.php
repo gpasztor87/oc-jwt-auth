@@ -1,4 +1,6 @@
-<?php namespace Autumn\JWTAuth\Http\Controllers;
+<?php
+
+namespace Autumn\JWTAuth\Http\Controllers;
 
 use JWTAuth;
 use Validator;
@@ -56,9 +58,8 @@ class AuthController extends BaseController
     {
         return Validator::make($data, [
             'username' => 'required|between:3,64|unique:users',
-            'email' => 'required|between:3,64|email|unique:users',
+            'email'    => 'required|between:3,64|email|unique:users',
             'password' => 'required|between:4,64|confirmed',
         ]);
     }
-
 }
