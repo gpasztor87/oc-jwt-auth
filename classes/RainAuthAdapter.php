@@ -40,7 +40,7 @@ class RainAuthAdapter implements AuthInterface
     /**
      * Authenticate a user via the id.
      *
-     * @param  mixed $id
+     * @param mixed $id
      *
      * @return bool
      */

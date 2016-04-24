@@ -1,4 +1,5 @@
 <?php
+
 namespace Autumn\JWTAuth;
 
 use App;
