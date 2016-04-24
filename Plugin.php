@@ -2,11 +2,11 @@
 namespace Autumn\JWTAuth;
 
 use App;
-use System\Classes\PluginBase;
 use Illuminate\Foundation\AliasLoader;
+use System\Classes\PluginBase;
 
 /**
- * JWTAuth Plugin Information File
+ * JWTAuth Plugin Information File.
  */
 class Plugin extends PluginBase
 {

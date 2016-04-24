@@ -2,12 +2,12 @@
 
 namespace Autumn\JWTAuth\Http\Controllers;
 
-use JWTAuth;
-use Validator;
 use Illuminate\Http\Request;
-use RainLab\User\Models\User;
 use Illuminate\Routing\Controller as BaseController;
+use JWTAuth;
+use RainLab\User\Models\User;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Validator;
 
 class AuthController extends BaseController
 {
@@ -16,11 +16,10 @@ class AuthController extends BaseController
         $credentials = $request->only('email', 'password');
 
         try {
-            if (! $token = JWTAuth::attempt($credentials)) {
+            if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }
-        }
-        catch (JWTException $ex) {
+        } catch (JWTException $ex) {
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
 
@@ -31,7 +30,7 @@ class AuthController extends BaseController
     {
         $data = $request->all();
 
-        if (! array_key_exists('password_confirmation', $request->all())) {
+        if (!array_key_exists('password_confirmation', $request->all())) {
             $data['password_confirmation'] = $request->get('password');
         }
 
@@ -50,7 +49,7 @@ class AuthController extends BaseController
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array $data
+     * @param array $data
      *
      * @return \Illuminate\Contracts\Validation\Validator
      */

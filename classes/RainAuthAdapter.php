@@ -21,7 +21,7 @@ class RainAuthAdapter implements AuthInterface
     /**
      * Check a user's credentials.
      *
-     * @param  array $credentials
+     * @param array $credentials
      *
      * @return mixed
      */
@@ -32,8 +32,7 @@ class RainAuthAdapter implements AuthInterface
             $this->auth->setUser($user);
 
             return $user;
-        }
-        catch (AuthException $e) {
+        } catch (AuthException $e) {
             return false;
         }
     }
