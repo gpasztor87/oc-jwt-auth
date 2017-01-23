@@ -2,7 +2,6 @@
 
 namespace Autumn\JWTAuth;
 
-use App;
 use Illuminate\Foundation\AliasLoader;
 use System\Classes\PluginBase;
 
@@ -12,7 +11,9 @@ use System\Classes\PluginBase;
 class Plugin extends PluginBase
 {
     /**
-     * @var array Plugin dependencies
+     * Plugin dependencies.
+     *
+     * @var array
      */
     public $require = ['RainLab.User'];
 
