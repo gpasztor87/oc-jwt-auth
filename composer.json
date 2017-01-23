@@ -3,6 +3,7 @@
     "description": "JSON Web Token Authentication plugin for OctoberCMS",
     "keywords": ["october", "cms", "octobercms", "api", "authentication", "json web token", "jwt"],
     "require": {
+        "dingo/api": "1.0.*@dev",
         "tymon/jwt-auth": "0.5.*"
     },
     "minimum-stability": "dev"

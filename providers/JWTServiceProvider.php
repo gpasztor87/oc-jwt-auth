@@ -13,8 +13,8 @@ class JWTServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->registerMiddleware('jwt.auth', 'Tymon\JWTAuth\Middleware\GetUserFromToken');
-        $this->registerMiddleware('jwt.refresh', 'Tymon\JWTAuth\Middleware\RefreshToken');
+        $this->registerMiddleware('jwt.auth', \Tymon\JWTAuth\Middleware\GetUserFromToken::class);
+        $this->registerMiddleware('jwt.refresh', \Tymon\JWTAuth\Middleware\RefreshToken::class);
     }
 
     /**

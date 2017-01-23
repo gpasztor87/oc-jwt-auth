@@ -38,10 +38,28 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-        $alias = AliasLoader::getInstance();
-        $alias->alias('JWTAuth', 'Tymon\JWTAuth\Facades\JWTAuth');
+        $this->app['config']['jwt'] = require(__DIR__.'/config/jwt.php');
+        $this->app['config']['api'] = require(__DIR__.'/config/api.php');
 
-        App::register('Tymon\JWTAuth\Providers\JWTAuthServiceProvider');
-        App::register('Autumn\JWTAuth\Providers\JWTServiceProvider');
+        $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
+        $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
+
+        $alias = AliasLoader::getInstance();
+        $alias->alias('JWTAuth', \Tymon\JWTAuth\Facades\JWTAuth::class);
+        $alias->alias('JWTFactory', \Tymon\JWTAuth\Facades\JWTFactory::class);
+    }
+
+    /**
+     * Boot method, called right before the request route.
+     *
+     * @return array
+     */
+    public function boot()
+    {
+        $this->app->register(\Autumn\JWTAuth\Providers\JWTServiceProvider::class);
+
+        $this->app['Dingo\Api\Auth\Auth']->extend('jwt', function ($app) {
+            return new \Dingo\Api\Auth\Provider\JWT($app['Tymon\JWTAuth\JWTAuth']);
+        });
     }
 }

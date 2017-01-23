@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'user' => 'RainLab\User\Models\User',
+    'user' => RainLab\User\Models\User::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -124,7 +124,7 @@ return [
         |
         */
 
-        'user' => 'Tymon\JWTAuth\Providers\User\EloquentUserAdapter',
+        'user' => Tymon\JWTAuth\Providers\User\EloquentUserAdapter::class,
 
         /*
         |--------------------------------------------------------------------------
@@ -135,7 +135,7 @@ return [
         |
         */
 
-        'jwt' => 'Tymon\JWTAuth\Providers\JWT\NamshiAdapter',
+        'jwt' => Tymon\JWTAuth\Providers\JWT\NamshiAdapter::class,
 
         /*
         |--------------------------------------------------------------------------
@@ -146,7 +146,7 @@ return [
         |
         */
 
-        'auth' => 'Autumn\JWTAuth\Classes\RainAuthAdapter',
+        'auth' => Autumn\JWTAuth\Classes\RainAuthAdapter::class,
 
         /*
         |--------------------------------------------------------------------------
@@ -157,7 +157,7 @@ return [
         |
         */
 
-        'storage' => 'Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter',
+        'storage' => Tymon\JWTAuth\Providers\Storage\IlluminateCacheAdapter::class,
 
     ],
 

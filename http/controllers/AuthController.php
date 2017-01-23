@@ -2,6 +2,7 @@
 
 namespace Autumn\JWTAuth\Http\Controllers;
 
+use Config;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use JWTAuth;
@@ -16,6 +17,7 @@ class AuthController extends BaseController
         $credentials = $request->only('email', 'password');
 
         try {
+            Config::set('jwt.user', 'Backend\Models\User');
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }
