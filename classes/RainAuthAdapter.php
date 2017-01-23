@@ -2,8 +2,8 @@
 
 namespace Autumn\JWTAuth\Classes;
 
-use BackendAuth;
 use October\Rain\Auth\AuthException;
+use RainLab\User\Classes\AuthManager;
 use Tymon\JWTAuth\Providers\Auth\AuthInterface;
 
 class RainAuthAdapter implements AuthInterface
@@ -15,7 +15,7 @@ class RainAuthAdapter implements AuthInterface
 
     public function __construct()
     {
-        $this->auth = BackendAuth::instance();
+        $this->auth = AuthManager::instance();
     }
 
     /**

@@ -38,8 +38,8 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-        $this->app['config']['jwt'] = require(__DIR__.'/config/jwt.php');
-        $this->app['config']['api'] = require(__DIR__.'/config/api.php');
+        $this->app['config']['jwt'] = require __DIR__.'/config/jwt.php';
+        $this->app['config']['api'] = require __DIR__.'/config/api.php';
 
         $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
         $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
