@@ -9,6 +9,6 @@ JSON Web Token Authentication plugin for OctoberCMS.
 ## Installation
 
 * Extract this repository into plugins/autumn/jwtauth
-* In plugins/autumn/api folder run `composer install`.
-* Copy the config/jwt.php file to the root config folder.
+* In plugins/autumn/jwtauth folder run `composer install`.
+* Run `php artisan vendor:publish --provider="Autumn\JWTAuth\ServiceProvider"` command.
 * Run `php artisan jwt:generate` command.
