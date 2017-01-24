@@ -11,6 +11,13 @@ use System\Classes\PluginBase;
 class Plugin extends PluginBase
 {
     /**
+     * Determine if this plugin should have elevated privileges.
+     *
+     * @var boolean
+     */
+    public $elevated = true;
+
+    /**
      * Plugin dependencies.
      *
      * @var array
