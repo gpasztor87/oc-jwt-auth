@@ -13,7 +13,7 @@ class Plugin extends PluginBase
     /**
      * Determine if this plugin should have elevated privileges.
      *
-     * @var boolean
+     * @var bool
      */
     public $elevated = true;
 
