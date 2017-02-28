@@ -2,9 +2,9 @@
 
 namespace Autumn\JWTAuth;
 
-use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
-use Tymon\JWTAuth\Middleware\GetUserFromToken;
 use Tymon\JWTAuth\Middleware\RefreshToken;
+use Tymon\JWTAuth\Middleware\GetUserFromToken;
+use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 class ServiceProvider extends IlluminateServiceProvider
 {

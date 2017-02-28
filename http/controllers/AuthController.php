@@ -2,25 +2,34 @@
 
 namespace Autumn\JWTAuth\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller as BaseController;
-use JWTAuth;
-use RainLab\User\Models\User;
-use Tymon\JWTAuth\Exceptions\JWTException;
 use Validator;
+use Tymon\JWTAuth\JWTAuth;
+use Illuminate\Http\Request;
+use RainLab\User\Models\User;
+use Illuminate\Routing\Controller as BaseController;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends BaseController
 {
+    protected $auth;
+
+    public function __construct(JWTAuth $auth)
+    {
+        $this->auth = $auth;
+    }
+
     public function authenticate(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-
         try {
-            if (!$token = JWTAuth::attempt($credentials)) {
-                return response()->json(['error' => 'invalid_credentials'], 401);
+            if (!$token = $this->auth->attempt($request->only('email', 'password'))) {
+                return response()->json([
+                    'error' => 'invalid_credentials'
+                ], 401);
             }
-        } catch (JWTException $ex) {
-            return response()->json(['error' => 'could_not_create_token'], 500);
+        } catch (JWTException $e) {
+            return response()->json([
+                'error' => 'could_not_create_token'
+            ], $e->getStatusCode());
         }
 
         return response()->json(compact('token'));
@@ -37,13 +46,15 @@ class AuthController extends BaseController
         $validator = $this->validator($data);
 
         if ($validator->fails()) {
-            return response()->json(['error' => $validator->getMessageBag()], 400);
+            return response()->json([
+                'error' => $validator->getMessageBag()
+            ], 400);
         }
 
         $user = User::create($data);
-        $token = JWTAuth::fromUser($user);
+        $token = $this->auth->attempt($request->only('email', 'password'));
 
-        return response()->json(compact('token'));
+        return response()->json(compact('user', 'token'));
     }
 
     /**
