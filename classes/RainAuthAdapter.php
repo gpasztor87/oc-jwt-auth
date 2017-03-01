@@ -46,7 +46,7 @@ class RainAuthAdapter implements AuthInterface
      */
     public function byId($id)
     {
-        if (!is_null($user = $this->auth->findUserById($id))) {
+        if (! is_null($user = $this->auth->findUserById($id))) {
             $this->auth->setUser($user);
 
             return true;

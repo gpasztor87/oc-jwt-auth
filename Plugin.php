@@ -31,10 +31,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'JWTAuth',
+            'name' => 'JWTAuth',
             'description' => 'JSON Web Token Authentication.',
-            'author'      => 'Autumn',
-            'icon'        => 'icon-user-secret',
+            'author' => 'Autumn',
+            'icon' => 'icon-user-secret',
         ];
     }
 
