@@ -17,6 +17,8 @@ class ServiceProvider extends IlluminateServiceProvider
     {
         $this->registerMiddleware('jwt.auth', GetUserFromToken::class);
         $this->registerMiddleware('jwt.refresh', RefreshToken::class);
+
+        $this->registerRequestRebindHandler();
     }
 
     public function boot()
@@ -36,5 +38,19 @@ class ServiceProvider extends IlluminateServiceProvider
     protected function registerMiddleware($alias, $class)
     {
         $this->app['router']->middleware($alias, $class);
+    }
+
+    /**
+     * Register a resolver for the authenticated user.
+     *
+     * @return void
+     */
+    protected function registerRequestRebindHandler()
+    {
+        $this->app->rebinding('request', function ($app, $request) {
+            $request->setUserResolver(function () use ($app) {
+                return $app['user.auth']->getUser();
+            });
+        });
     }
 }

@@ -57,6 +57,13 @@ class AuthController extends BaseController
         return response()->json(compact('user', 'token'));
     }
 
+    public function user(Request $request)
+    {
+        $user = $request->user();
+
+        return response()->json(compact('user'));
+    }
+
     public function logout()
     {
         $this->auth->invalidate($this->auth->getToken());
