@@ -23,7 +23,7 @@ by Sean Tymon.
 
 ## Usage
 
-This plugin provides 2 api endpoints:
+This plugin provides the following api endpoints:
 
 ### /api/auth/login
 
@@ -34,3 +34,7 @@ credentials, and returns a token corresponding to that user if succeeded.
 
 Expects 3 parameters to receive: username, email and password. It tries to create a user
 and returns a token corresponding to that user if succeeded.
+
+### /api/auth/logout
+
+Provide the basic logout functionality.
