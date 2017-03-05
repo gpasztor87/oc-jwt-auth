@@ -23,16 +23,25 @@ class AuthController extends BaseController
         try {
             if (! $token = $this->auth->attempt($request->only('email', 'password'))) {
                 return response()->json([
-                    'error' => 'invalid_credentials',
+                    'errors' => [
+                        'root' => 'Could not sign you in with those details.',
+                    ],
                 ], 401);
             }
         } catch (JWTException $e) {
             return response()->json([
-                'error' => 'could_not_create_token',
+                'errors' => [
+                    'root' => 'Failed.',
+                ],
             ], $e->getStatusCode());
         }
 
-        return response()->json(compact('token'));
+        return response()->json([
+            'data' => $request->user(),
+            'meta' => [
+                'token' => $token,
+            ],
+        ]);
     }
 
     public function register(Request $request)
@@ -54,14 +63,19 @@ class AuthController extends BaseController
         $user = User::create($data);
         $token = $this->auth->attempt($request->only('email', 'password'));
 
-        return response()->json(compact('user', 'token'));
+        return response()->json([
+            'data' => $user,
+            'meta' => [
+                'token' => $token,
+            ],
+        ]);
     }
 
     public function user(Request $request)
     {
-        $user = $request->user();
-
-        return response()->json(compact('user'));
+        return response()->json([
+            'data' => $request->user(),
+        ]);
     }
 
     public function logout()
