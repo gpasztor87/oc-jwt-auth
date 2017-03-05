@@ -45,7 +45,6 @@ class Plugin extends PluginBase
      */
     public function register()
     {
-        $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
         $this->app->register(\Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class);
 
         $this->app->register(ServiceProvider::class);

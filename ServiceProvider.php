@@ -25,7 +25,6 @@ class ServiceProvider extends IlluminateServiceProvider
     {
         $this->publishes([
             realpath(__DIR__.'/config/jwt.php') => config_path('jwt.php'),
-            realpath(__DIR__.'/config/api.php') => config_path('api.php'),
         ]);
     }
 
