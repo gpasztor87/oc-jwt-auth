@@ -36,7 +36,11 @@ class ServiceProvider extends IlluminateServiceProvider
      */
     protected function registerMiddleware($alias, $class)
     {
-        $this->app['router']->middleware($alias, $class);
+        $router = $this->app['router'];
+
+        $method = method_exists($router, 'aliasMiddleware') ? 'aliasMiddleware' : 'middleware';
+
+        $router->$method($alias, $class);
     }
 
     /**
