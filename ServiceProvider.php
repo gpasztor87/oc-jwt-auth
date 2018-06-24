@@ -4,6 +4,7 @@ namespace Autumn\JWTAuth;
 
 use Tymon\JWTAuth\Middleware\RefreshToken;
 use Tymon\JWTAuth\Middleware\GetUserFromToken;
+use Autumn\JWTAuth\Commands\JWTGenerateCommand;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 class ServiceProvider extends IlluminateServiceProvider
@@ -18,6 +19,7 @@ class ServiceProvider extends IlluminateServiceProvider
         $this->registerMiddleware('jwt.auth', GetUserFromToken::class);
         $this->registerMiddleware('jwt.refresh', RefreshToken::class);
 
+        $this->registerJWTCommand();
         $this->registerRequestRebindHandler();
     }
 
@@ -41,6 +43,16 @@ class ServiceProvider extends IlluminateServiceProvider
         $method = method_exists($router, 'aliasMiddleware') ? 'aliasMiddleware' : 'middleware';
 
         $router->$method($alias, $class);
+    }
+
+    /**
+     * Register the Artisan command.
+     */
+    protected function registerJWTCommand()
+    {
+        $this->app->singleton('tymon.jwt.generate', function () {
+            return new JWTGenerateCommand();
+        });
     }
 
     /**

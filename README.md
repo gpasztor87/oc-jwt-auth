@@ -1,4 +1,4 @@
-#JWT-Auth plugin
+# JWT-Auth plugin
 
 [![Build Status](https://scrutinizer-ci.com/g/gpasztor87/oc-jwt-auth/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gpasztor87/oc-jwt-auth/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gpasztor87/oc-jwt-auth/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gpasztor87/oc-jwt-auth/?branch=master)
