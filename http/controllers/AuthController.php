@@ -36,6 +36,9 @@ class AuthController extends BaseController
             ], $e->getStatusCode());
         }
 
+        $user = $this->auth->authenticate($token);
+        $user->afterLogin();
+
         return response()->json([
             'data' => $request->user(),
             'meta' => [
